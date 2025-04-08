@@ -1,15 +1,60 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap');
+@import 'tailwindcss';
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-sans:
+		Noto Sans, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji,
+		Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	--color-base: #f6f7eb;
+	--color-primary: #e94f37;
+	--color-typescript: #3178c6;
+	--color-magic: #ba6837;
+	--inset-shadow-md: inset 0 2px 3px rgba(0, 0, 0, 0.25);
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+:root {
+	--grid-color: rgba(0, 0, 0, 0.2);
+	--grid-size: 30px 30px;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+body {
+	background-color: var(--color-base);
+	background-size: var(--grid-size);
+	background-image:
+		linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+	animation: scrollBackground 10s linear infinite;
+}
+
+@keyframes scrollBackground {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 60px 0px;
+	}
+}
+
+@keyframes reverseScrollBackground {
+	from {
+		background-position: 0px 0px;
+	}
+	to {
+		background-position: 0 60px;
+	}
+}
+
+.grid-background {
+	background-color: var(--color-base);
+	background-size: var(--grid-size);
+	background-image:
+		linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+	animation: reverseScrollBackground 10s linear infinite;
+}
+
+.pixelated-text {
+	font-family: 'Press Start 2P', system-ui;
+	font-weight: 100;
+	font-style: normal;
 }
